@@ -1,6 +1,15 @@
 require "minruby"
 
-tree = minruby_parse("1 + 2 * 4")
-p(tree)
 
-pp(minruby_parse("(1 + 2) / 3 * 4 * (56 / 7 + 8 +9)"))
+
+# 計算式の文字列を読み込む
+str = gets
+
+# 計算式の文字列を木に変換する
+tree = minruby_parse(str)
+
+# 計算を実行
+# answer = ...
+
+# 計算結果を出力
+p(answer)
