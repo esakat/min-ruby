@@ -12,6 +12,11 @@ def evaluate(tree, env)
     while evaluate(tree[1], env)
       evaluate(tree[2], env)
     end
+  when "while2" # begin-endのwhile
+    evaluate(tree[2], env)
+    while evaluate(tree[1], env)
+      evaluate(tree[2], env)
+    end
   when "lit"
     tree[1]
   when "+"
