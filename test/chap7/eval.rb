@@ -65,8 +65,26 @@ def evaluate(tree, genv ,lenv)
   end
 end
 
+# 組み込み関数を定義
+def fizz_buzz(n)
+  p("これはmin_rubyに組み込んだ関数で呼ばれています")
+  i = 1
+  while i < n
+    if i % 15 == 0
+      p("FizzBuzz")
+    elsif i % 5 == 0
+      p("Buzz")
+    elsif i % 3 == 0
+      p("Fizz")
+    else
+      p(i)
+    end
+    i = i + 1
+  end
+end
+
 str = minruby_load()
 tree = minruby_parse(str)
-genv = { "p" => ["builtin", "p"] }
+genv = { "p" => ["builtin", "p"], "fizz_buzz" => ["builtin", "fizz_buzz"] }
 lenv = {}
 evaluate(tree, genv, lenv)
